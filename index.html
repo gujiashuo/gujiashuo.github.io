@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>李想 · 兽医</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --surface: #171a21;
+      --text: #f3f1ec;
+      --text-muted: #a8a49a;
+      --accent: #d8b077;
+      --accent-soft: rgba(216, 176, 119, 0.14);
+      --border: #282c34;
+      --radius: 20px;
+      --max-width: 680px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC",
+                   "STSong", "SimSun", Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 渐变动画背景 */
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(-45deg, #10141a, #14201d, #1a1626, #221a14);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(900px 500px at 80% -10%, var(--accent-soft), transparent 60%);
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 96px 24px 64px;
+    }
+
+    /* 头像 / 标志 */
+    .badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #e8c896);
+      display: grid;
+      place-items: center;
+      font-size: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 12px 30px rgba(216, 176, 119, 0.22);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .role {
+      margin-top: 12px;
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.14em;
+    }
+
+    .tagline {
+      margin-top: 30px;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .card {
+      margin-top: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .card p + p { margin-top: 14px; }
+
+    /* 底部社交链接 */
+    footer {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px 64px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .socials a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .socials a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(216, 176, 119, 0.14);
+    }
+
+    @media (max-width: 480px) {
+      main { padding-top: 64px; }
+      .card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="badge" aria-hidden="true">🐾</div>
+
+    <h1>李想</h1>
+    <p class="role">执业兽医 · Veterinarian</p>
+
+    <p class="tagline">我是李想，一名用耐心与专业守护小动物健康的兽医。</p>
+
+    <div class="card">
+      <p>
+        你好，我是李想。从事兽医工作多年，我始终相信，每一只毛孩子都值得被认真、温柔地对待。
+        日常的工作里，我既在诊室里为猫猫狗狗看病，也会走到社区和街头，为流浪动物提供力所能及的帮助。
+      </p>
+      <p>
+        从疫苗接种、疾病诊疗到营养与术后护理，我希望把复杂的医学知识讲得简单易懂，
+        让每位主人和它们的小家伙，都能在彼此陪伴的日子里，健康、安心地走下去。
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <hr class="divider" />
+    <div class="socials">
+      <a href="#" aria-label="微博">微博</a>
+      <a href="#" aria-label="微信公众号">微信公众号</a>
+      <a href="#" aria-label="GitHub">GitHub</a>
+      <a href="#" aria-label="邮箱">Email</a>
+    </div>
+  </footer>
+</body>
+</html>
